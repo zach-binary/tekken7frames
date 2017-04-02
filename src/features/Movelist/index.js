@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css'
-import { characters } from '../CharacterSelect';
+import characters from '../../characters';
 
 class Movelist extends Component {
 

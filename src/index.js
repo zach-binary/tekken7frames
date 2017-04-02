@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 import App from './App';
-import { CharacterSelect } from './features/CharacterSelect'
+import CharacterSelect from './features/CharacterSelect'
 import Movelist from './features/Movelist'
 import './index.css';
 import { Route, Router, browserHistory } from 'react-router';
+import reducers from './reducers';
+
+const store = createStore(reducers);
 
 const Routes = () => {
   return (
@@ -18,6 +23,8 @@ const Routes = () => {
 }
 
 ReactDOM.render(
-  <Routes />,
+  <Provider store={store}>
+    <Routes />
+  </Provider>,
   document.getElementById('root')
 );
