@@ -10,9 +10,18 @@ export default combineReducers({
 
     frames: (state = [], action) => {
         if (action.type === frameDataActions.FETCH_FRAME_DATA_SUCCESS) {
-            console.log(action);
             return action.frames;
         }
+
+        return state;
+    },
+
+    loading: (state = false, action) => {
+        console.log(action);
+        if (action.type === frameDataActions.FETCH_FRAME_DATA)
+            return true;
+        if (action.type === frameDataActions.FETCH_FRAME_DATA_SUCCESS)
+            return false;
 
         return state;
     }
